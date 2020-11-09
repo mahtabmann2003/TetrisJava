@@ -1,3 +1,5 @@
+package com.main.tetris;
+
 import java.util.*;
 
 public class Shape {
