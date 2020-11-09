@@ -4,19 +4,19 @@ import java.util.*;
 
 public class Shape {
 
-    protected enum Tetrominoes {
+    protected enum Tetrominoe {
         NoShape, ZShape, SShape, LineShape, TShape, SquareShape, LShape, MirroredShape
     }
 
-    private Tetrominoes pieceShape;
+    private Tetrominoe pieceShape;
     private int[][] coords;
 
     public Shape() {
 
         coords = new int[4][2];
-        setShape(Tetrominoes.NoShape);
+        setShape(Tetrominoe.NoShape);
     }
-    void setShape(Tetrominoes shape) {
+    void setShape(Tetrominoe shape) {
 
         int [][][] coordsTable = new int[][][] {
                 {{0, 0}, {0, 0}, {0, 0}, {0, 0}},
@@ -54,7 +54,7 @@ public class Shape {
 
         return coords[index][1];
     }
-    Tetrominoes getShape() {
+    Tetrominoe getShape() {
 
         return pieceShape;
     }
@@ -63,7 +63,7 @@ public class Shape {
         var r = new Random();
         int x = Math.abs(r.nextInt()) % 7 + 1;
 
-        Tetrominoes[] values = Tetrominoes.values();
+        Tetrominoe[] values = Tetrominoe.values();
         setShape(values[x]);
     }
     public int minX() {
@@ -83,7 +83,7 @@ public class Shape {
         return m;
     }
     Shape rotateRight() {
-        if (pieceShape == Tetrominoes.SquareShape) {
+        if (pieceShape == Tetrominoe.SquareShape) {
             return this;
         }
         var result = new Shape();
@@ -96,7 +96,7 @@ public class Shape {
         return result;
     }
     Shape rotateLeft() {
-        if (pieceShape == Tetrominoes.SquareShape) {
+        if (pieceShape == Tetrominoe.SquareShape) {
             return this;
         }
         var result = new Shape();
