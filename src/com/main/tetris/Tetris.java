@@ -26,7 +26,7 @@ public class Tetris extends JFrame {
         setLocationRelativeTo(null);
 
     }
-    JLabel getStatusbar() {
+    JLabel getStatusBar() {
 
         return statusbar;
     }
