@@ -34,4 +34,24 @@ public class Board extends JPanel {
         statusbar = parent.getStatusBar();
         addKeyListener(new TAdapter());
     }
+    private int squareWidth() {
+        return (int) getSize().getHeight() / BOARD_WIDTH;
+    }
+    private int squareHeight() {
+        return (int) getSize().getHeight() / BOARD_HEIGHT;
+    }
+    private Tetrominoes shapeAt(int x, int y) {
+        return board [(y * BOARD_WIDTH) + x];
+    }
+    void start() {
+        curPiece = new Shape();
+        board = new Tetrominoes[BOARD_WIDTH * BOARD_HEIGHT];
+
+        clearBoard();
+        newPiece();
+
+        timer = new Timer(PERIOD_INTERVAL, new GameCycle());
+    }
+
+
 }
